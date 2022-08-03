@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class ReviewService {
 
-    @Autowired
     private ReviewRepository reviewRepository;
+
+    @Autowired
+    public ReviewService(ReviewRepository reviewRepository) {
+        this.reviewRepository = reviewRepository;
+    }
 
     public List<Review> getReviewsByProduct (Integer productId) {
         return reviewRepository.getReviewsByProduct(productId);

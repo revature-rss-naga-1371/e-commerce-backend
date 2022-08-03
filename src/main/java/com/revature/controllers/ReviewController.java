@@ -16,9 +16,10 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @PostMapping("/create-item")
-    public void createItem(@RequestBody Review review){
-        reviewService.createReview(review);
+    @PostMapping("/create-review")
+    public Review createItem(@RequestBody Review review){
+        System.out.println(review);
+        return reviewService.createReview(review);
     }
     @Authorized
     @GetMapping("/{id}")

@@ -47,3 +47,39 @@ INSERT INTO users (id, email, password, first_name, last_name) VALUES (
     'Test',
     'User'
 );
+
+INSERT INTO review (id, description, name, rating, product_id) VALUES (
+    1,
+    'Its the most awesome shirt.',
+    'Its great!!!',
+    4,
+  2
+),
+(
+  2,
+  'You will never hear anything like it!',
+  'THE BEST SOUND',
+  5,
+  1
+),
+(
+  3,
+  'It holds stuff, but not great.',
+  'Its eh',
+  3,
+  3
+),
+(
+  4,
+  'This is any dog lovers must have hat.',
+  'LOVE DOGS',
+  5,
+  4
+),
+(
+  5,
+  'its nice but we need more options, if there were more I would give two more stars.',
+  'Need more options',
+  2,
+  5
+);

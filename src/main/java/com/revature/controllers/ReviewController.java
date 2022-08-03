@@ -18,7 +18,6 @@ public class ReviewController {
 
     @PostMapping("/create-review")
     public void createItem(@RequestBody Review review){
-        System.out.println(review);
         reviewService.createReview(review);
     }
     @Authorized

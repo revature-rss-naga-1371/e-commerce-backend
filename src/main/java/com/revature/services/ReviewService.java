@@ -22,11 +22,12 @@ public class ReviewService {
         return reviewRepository.getReviewsByProduct(productId);
     }
 
-    public void createReview (Review review) {
+    public Review createReview (Review review) {
         Product product = new Product();
         product.setId(Integer.parseInt(review.getProductId()));
         review.setProduct(product);
         reviewRepository.save(review);
+        return review;
     }
 
 

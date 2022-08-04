@@ -1,6 +1,5 @@
 package com.revature.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,6 @@ public class Product {
     private String image;
     private String name;
 
-    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY)
     private List<Review> reviews = new ArrayList<>();
 

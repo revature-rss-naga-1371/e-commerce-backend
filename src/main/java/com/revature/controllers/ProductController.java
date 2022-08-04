@@ -65,6 +65,15 @@ public class ProductController {
     @PutMapping
     public ResponseEntity<Product> upsert(@RequestBody Product product) {
         System.out.println(product);
+        if (product.getId() != 0) {
+            System.out.println("here");
+            Optional<Product> currentProduct = productRepository.findById(product.getId());
+            if (product.getImage() == null) {
+                System.out.println(currentProduct.get().getImage());
+                product.setImage(currentProduct.get().getImage());
+                return ResponseEntity.ok(productService.save(product));
+            }
+        }
         return ResponseEntity.ok(productService.save(product));
     }
 

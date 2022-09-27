@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
+import com.revature.dtos.UserDto;
 import com.revature.models.User;
 import com.revature.services.AuthService;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -51,5 +53,17 @@ public class AuthController {
                 registerRequest.getLastName());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(created));
+    }
+
+    @PatchMapping("/resetPW")
+    public void resetPW(
+            @RequestBody UserDto userDto
+    ) {
+        authService.resetPW(userDto);
+    }
+
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return authService.getUsers();
     }
 }

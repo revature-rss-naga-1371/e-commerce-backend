@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,4 +22,16 @@ public class Product {
     private String description;
     private String image;
     private String name;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Review> reviews = new ArrayList<>();
+
+    public Product(int id, int quantity, double price, String description, String image, String name) {
+        this.id = id;
+        this.quantity = quantity;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.name = name;
+    }
 }

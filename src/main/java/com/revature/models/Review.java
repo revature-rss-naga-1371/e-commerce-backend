@@ -11,15 +11,17 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
-public class User {
+public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue()
     private int id;
-    private String email;
+    private int rating;
+    private String name;
+    private String description;
+
     @JsonIgnore
-    private String password;
-    private String firstName;
-    private String lastName;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }
